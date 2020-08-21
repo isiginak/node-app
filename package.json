@@ -1,0 +1,25 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "description": "node application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isiginak/node-app.git"
+  },
+  "keywords": [
+    "123456.i"
+  ],
+  "author": "isiginak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isiginak/node-app/issues"
+  },
+  "homepage": "https://github.com/isiginak/node-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
