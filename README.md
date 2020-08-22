@@ -4,7 +4,7 @@ This project can filter data, when you send necessary parameters.
 
 
 ## Table Of Contents
-- [Inavitas Unit Management](#inavitas-unit-management)
+- [Node-App-Project](#node-app-project)
   - [Table Of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
