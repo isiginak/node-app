@@ -17,8 +17,6 @@ This project can filter data, when you send necessary parameters.
     - [1. Url:](#1-Url)
       - [1.1. POST /filter-data](#11-post-filter-data)
      
-    
-
 
 
 ## Getting Started
