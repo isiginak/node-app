@@ -1,13 +1,12 @@
 const moment =require('moment');
 const {MongoClient, Cursor} = require('mongodb');
-var isodate = require("isodate");
+const isodate = require("isodate");
 const _=require('lodash');
 /**
  * it is connecting mongodb.
  */
 async function dbConnection(){
     const uri ="mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?retryWrites=true";
-    //"mongodb+srv://ikbal:en257Doks!@getircluster.vbnuf.mongodb.net/<dbname>?retryWrites=true&w=majority";
    global.database = await  MongoClient.connect(uri);
    var dbo = await global.database.db("getir-case-study");
    return  dbo.collection("record")
