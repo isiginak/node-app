@@ -12,6 +12,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "isodate": "^0.1.4",
+    "lodash": "^4.17.20",
     "moment": "^2.27.0",
     "mongodb": "^3.6.0",
     "morgan": "~1.9.1",

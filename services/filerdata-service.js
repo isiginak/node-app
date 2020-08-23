@@ -1,15 +1,16 @@
 const moment =require('moment');
 const {MongoClient, Cursor} = require('mongodb');
-const {BadRequestClientError,}=require('../error/error-response');
 var isodate = require("isodate");
+const _=require('lodash');
 /**
  * it is connecting mongodb.
  */
 async function dbConnection(){
-    const uri ="mongodb+srv://ikbal:en257Doks!@getircluster.vbnuf.mongodb.net/<dbname>?retryWrites=true&w=majority";
+    const uri ="mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?retryWrites=true";
+    //"mongodb+srv://ikbal:en257Doks!@getircluster.vbnuf.mongodb.net/<dbname>?retryWrites=true&w=majority";
    global.database = await  MongoClient.connect(uri);
-   var dbo = await global.database.db("getir_db");
-   return  dbo.collection("getir_data")
+   var dbo = await global.database.db("getir-case-study");
+   return  dbo.collection("record")
   }
   /**
    * 
@@ -50,19 +51,17 @@ async function filterData(reqBody){
             createdAt:{
                 $gt:isodate(startDate),
                 $lt:isodate(endDate),
-            },
-            totalCount:{
-                $gt:reqBody.minCount,
-                $lt:reqBody.maxCount,
             }
+           
         }
         const filterData = await  dbo.find(query).toArray();
         filterData.map(datum=>{
             const obj={};
             obj.key=datum.key;
             obj.createdAt=datum.createdAt;
-            obj.totalCount=datum.totalCount;
-            result.records.push(obj);
+            const sumCount=_.sum(datum.counts);
+            obj.totalCount=sumCount;
+            if(reqBody.minCount<sumCount&&reqBody.maxCount>sumCount){result.records.push(obj);}
         });
             result.code=0;
             result.msg='Success';
